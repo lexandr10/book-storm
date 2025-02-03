@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import BookCoverSvg from "./BookCoverSvg"
 
 
 
@@ -27,7 +28,7 @@ const BookCover = ({variant = 'regular', className, coverColor = "#012B48", cove
           variantsStyles[variant],
           className
       )}>
-          BOOK SIDE SVG
+          <BookCoverSvg coverColor={coverColor}/>
           <div className="absolute z-10" style={{ left: "12%", width: "87.5%", height: "88%" }}>
               <Image src={coverUrl} alt="book cover" fill className="rounded-sm object-fill"/>
           </div>
