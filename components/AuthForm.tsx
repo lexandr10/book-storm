@@ -24,7 +24,7 @@ const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit
         defaultValues: defaultValues as DefaultValues<T>,
     })
     const isSignIn = type === "SIGN_IN"
-
+ 
     const handlerSubmit: SubmitHandler<T> = async (data) => {} 
 
 
@@ -47,7 +47,7 @@ const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit
                                   {FIELD_NAMES[field.name as keyof typeof FIELD_NAMES]}
                               </FormLabel>
                               <FormControl>
-                                  {field.name === "universityCard" ? <ImageUpload /> :
+                                  {field.name === "universityCard" ? <ImageUpload onFileChange={field.onChange} /> :
                                       <Input
                                           className="form-input"
                                           required
