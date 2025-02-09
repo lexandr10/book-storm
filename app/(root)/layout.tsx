@@ -1,7 +1,13 @@
+import { auth } from "@/auth";
 import Header from "@/components/Header";
+import { redirect } from "next/navigation";
 import { PropsWithChildren } from "react";
 
-const Layout = ({children}: PropsWithChildren) => {
+const Layout = async({ children }: PropsWithChildren) => {
+  
+   const session = await auth();
+  
+      if(!session) redirect("/sign-in")
   return (
       <main className="root-container">
           <div className="mx-auto max-w-7xl">
